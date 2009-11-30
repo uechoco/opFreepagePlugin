@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+    http://pear.php.net/dtd/tasks-1.0.xsd
+    http://pear.php.net/dtd/package-2.0
+    http://pear.php.net/dtd/package-2.0.xsd">
+ <name>opFreepagePlugin</name>
+ <channel>plugins.openpne.jp</channel>
+ <summary> </summary>
+ <description> </description>
+ <lead>
+  <name />
+  <user />
+  <email>maintainer@example.com</email>
+  <active>yes</active>
+ </lead>
+ <date>2009-02-15</date>
+ <time>12:21:57</time>
+ <version>
+  <release>0.9.0</release>
+  <api>0.9.0</api>
+ </version>
+ <stability>
+  <release>beta</release>
+  <api>beta</api>
+ </stability>
+ <license>Apache 2.0</license>
+ <notes>First release</notes>
+ <contents>
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="71f16236af2373c5d18c14d26bb0d438" name="apps/mobile_frontend/modules/freepage/actions/actions.class.php" role="php" />
+   <file baseinstalldir="/" md5sum="802647e6f18bf65f0ddc321f3b022b6f" name="apps/mobile_frontend/modules/freepage/templates/indexSuccess.php" role="php" />
+   <file baseinstalldir="/" md5sum="760acc36302c9a0360f932d4985ae936" name="apps/pc_backend/modules/opFreepagePlugin/actions/actions.class.php" role="php" />
+   <file baseinstalldir="/" md5sum="2bc2502509d181fce67b0de3d36fd814" name="apps/pc_backend/modules/opFreepagePlugin/templates/editSuccess.php" role="php" />
+   <file baseinstalldir="/" md5sum="d41d8cd98f00b204e9800998ecf8427e" name="apps/pc_backend/modules/opFreepagePlugin/templates/indexSuccess.php" role="php" />
+   <file baseinstalldir="/" md5sum="7ea5180bdfd3f41775248f29a86d3f6d" name="apps/pc_backend/modules/opFreepagePlugin/templates/listSuccess.php" role="php" />
+   <file baseinstalldir="/" md5sum="538d4f269609656300450c58366caa2a" name="apps/pc_backend/modules/opFreepagePlugin/templates/newSuccess.php" role="php" />
+   <file baseinstalldir="/" md5sum="64ee9e144131152271c8455f927a83a2" name="apps/pc_backend/modules/opFreepagePlugin/templates/_form.php" role="php" />
+   <file baseinstalldir="/" md5sum="f66797ab79b8955d1760f42cbbda7466" name="apps/pc_backend/modules/opFreepagePlugin/templates/_submenu.php" role="php" />
+   <file baseinstalldir="/" md5sum="259d8d00afe0fc444bc4ef11c2af122b" name="apps/pc_frontend/modules/freepage/actions/actions.class.php" role="php" />
+   <file baseinstalldir="/" md5sum="802647e6f18bf65f0ddc321f3b022b6f" name="apps/pc_frontend/modules/freepage/templates/indexSuccess.php" role="php" />
+   <file baseinstalldir="/" md5sum="fc998cc5b343c1e9a459bfd260b1c275" name="config/config.php" role="php" />
+   <file baseinstalldir="/" md5sum="d1a63f1d56770e6d5fdf097fdf113447" name="config/schema.yml" role="data" />
+   <file baseinstalldir="/" md5sum="e7fd5ab6aaf7015e0235324ecdc184e6" name="lib/opFreepagePluginRouting.class.php" role="php" />
+   <file baseinstalldir="/" md5sum="a2f56544cae8d857fc697f7b0e69ccd7" name="lib/filter/FreepageFormFilter.class.php" role="php" />
+   <file baseinstalldir="/" md5sum="7b8eeb4d961d48bdee09209a21b8b585" name="lib/filter/base/BaseFreepageFormFilter.class.php" role="php" />
+   <file baseinstalldir="/" md5sum="269eaaeb4cf6345e5bbd21ef9cc5b1f4" name="lib/form/FreepageForm.class.php" role="php" />
+   <file baseinstalldir="/" md5sum="9d45d5a8c33bee001de5dec2138dbc7a" name="lib/form/base/BaseFreepageForm.class.php" role="php" />
+   <file baseinstalldir="/" md5sum="080b07ef45c03fe7fab9a042ae838e5b" name="lib/model/Freepage.php" role="php" />
+   <file baseinstalldir="/" md5sum="6cfcc3a64305b0387907d2ac092457fe" name="lib/model/FreepagePeer.php" role="php" />
+   <file baseinstalldir="/" md5sum="78f98093cdf217ea3fb5056a008395c8" name="lib/model/map/FreepageMapBuilder.php" role="php" />
+   <file baseinstalldir="/" md5sum="9c48a404b45fc2f0dc7caaab330588d1" name="lib/model/om/BaseFreepage.php" role="php" />
+   <file baseinstalldir="/" md5sum="1215aed3f61f241eae148d6b7e8570a5" name="lib/model/om/BaseFreepagePeer.php" role="php" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>5.2.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0</min>
+   </pearinstaller>
+   <package>
+    <name>symfony</name>
+    <channel>pear.symfony-project.com</channel>
+    <min>1.2.0</min>
+   </package>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
+  <release>
+   <version>
+    <release>0.9.0</release>
+    <api>0.9.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>beta</api>
+   </stability>
+   <date>2009-02-15</date>
+   <license>Apache 2.0</license>
+   <notes>First release</notes>
+  </release>
+ </changelog>
+</package>
