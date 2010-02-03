@@ -1,0 +1,11 @@
+options:
+  charset: utf8
+actAs: [Timestampable]
+
+Freepage:
+  columns:
+    id:       { type: integer(4), primary: true, autoincrement: true }
+    title:    { type: string, notnull: true }
+    body:     { type: string, notnull: true }
+    app_type: { type: string(16), notnull: true, default: 'pc' }
+    auth:     { type: boolean, notnull: true, default: true }

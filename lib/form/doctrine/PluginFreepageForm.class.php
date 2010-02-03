@@ -1,20 +1,22 @@
 <?php
 
 /**
- * Freepage form.
+ * PluginFreepage form.
  *
- * @package    ##PROJECT_NAME##
+ * @package    opFreepagePlugin
  * @subpackage form
- * @author     ##AUTHOR_NAME##
- * @version    SVN: $Id: sfPropelFormTemplate.php 10377 2008-07-21 07:10:32Z dwhittle $
+ * @author     uechoco
+ * @author     Rimpei Ogawa <ogawa@tejimaya.com>
  */
-class FreepageForm extends BaseFreepageForm
+abstract class PluginFreepageForm extends BaseFreepageForm
 {
   protected static $auths = array('0' => 'なし', '1' => 'あり');
   protected static $app_types = array('pc' => 'pc', 'mobile' => 'mobile');
 
-  public function configure()
+  public function setup()
   {
+    parent::setup();
+
     unset($this['created_at'], $this['updated_at']);
 
     $this->widgetSchema['body'] = new sfWidgetFormTextarea(array(), array('cols' => 50, 'rows' => 20));

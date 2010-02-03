@@ -13,8 +13,8 @@
  *
  * @package    OpenPNE
  * @subpackage opFreepagePlugin
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 9301 2008-05-27 01:08:46Z dwhittle $
+ * @author     uechoco
+ * @author     Rimpei Ogawa <ogawa@tejimaya.com>
  */
 class opFreepagePluginActions extends sfActions
 {
@@ -35,7 +35,7 @@ class opFreepagePluginActions extends sfActions
   */
   public function executeList($request)
   {
-    $this->freepage_list = FreepagePeer::doSelect(new Criteria());
+    $this->freepage_list = Doctrine::getTable('Freepage')->findAll();
   }
 
   public function executeNew(sfWebRequest $request)
@@ -56,14 +56,14 @@ class opFreepagePluginActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forward404Unless($freepage = FreepagePeer::retrieveByPk($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($freepage = Doctrine::getTable('Freepage')->find($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
     $this->form = new FreepageForm($freepage);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
-    $this->forward404Unless($freepage = FreepagePeer::retrieveByPk($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($freepage = Doctrine::getTable('Freepage')->find($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
     $this->form = new FreepageForm($freepage);
 
     $this->processForm($request, $this->form);
@@ -75,13 +75,13 @@ class opFreepagePluginActions extends sfActions
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($freepage = FreepagePeer::retrieveByPk($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($freepage = Doctrine::getTable('Freepage')->find($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
     $freepage->delete();
 
     $this->redirect('opFreepagePlugin/list');
   }
 
-  protected function processForm(sfWebRequest $request, sfFormPropel $form)
+  protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())

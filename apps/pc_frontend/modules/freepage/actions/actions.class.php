@@ -13,8 +13,8 @@
  *
  * @package    OpenPNE
  * @subpackage freepage
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 9301 2008-05-27 01:08:46Z dwhittle $
+ * @author     uechoco
+ * @author     Rimpei Ogawa <ogawa@tejimaya.com>
  */
 class freepageActions extends sfActions
 {
@@ -26,7 +26,7 @@ class freepageActions extends sfActions
   public function executeIndex($request)
   {
     // forward 404 page unless freepage does exist
-    $this->forward404Unless($this->freepage = FreepagePeer::retrieveByPk($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($this->freepage = Doctrine::getTable('Freepage')->find($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
 
     if ($this->freepage->getAuth()) {
       if (($member = $this->getUser()->getMember()) && $member->getIsActive()) {

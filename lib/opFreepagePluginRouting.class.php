@@ -6,7 +6,7 @@ class opFreepagePluginRouting
     $routing = $event->getSubject();
 
     $routes = array(
-      'freepage_id' => new sfPropelRoute(
+      'freepage_id' => new sfDoctrineRoute(
         '/freepage/:id',
         array('module' => 'freepage', 'action' => 'index'),
         array('id' => '\d+'),
