@@ -1,0 +1,15 @@
+freepage:
+  class:   sfDoctrineRouteCollection
+  options:
+    model:       Freepage
+    module:      opFreepagePlugin
+    prefix_path: /opFreepagePlugin
+    with_show:   false
+
+freepage_list:
+  url:     /opFreepagePlugin/list
+  params:  { module: opFreepagePlugin, action: list }
+
+freepage_nodefaults:
+  url:     /opFreepagePlugin/*
+  params:  { module: default, action: error }

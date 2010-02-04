@@ -18,21 +18,11 @@
  */
 class opFreepagePluginActions extends sfActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
   public function executeIndex($request)
   {
     $this->redirect('opFreepagePlugin/list');
   }
 
- /**
-  * Executes list action
-  *
-  * @param sfRequest $request A request object
-  */
   public function executeList($request)
   {
     $this->freepage_list = Doctrine::getTable('Freepage')->findAll();
@@ -45,8 +35,6 @@ class opFreepagePluginActions extends sfActions
 
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod('post'));
-
     $this->form = new FreepageForm();
 
     $this->processForm($request, $this->form);
@@ -56,14 +44,13 @@ class opFreepagePluginActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forward404Unless($freepage = Doctrine::getTable('Freepage')->find($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
+    $freepage = $this->getRoute()->getObject();
     $this->form = new FreepageForm($freepage);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
-    $this->forward404Unless($freepage = Doctrine::getTable('Freepage')->find($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
+    $freepage = $this->getRoute()->getObject();
     $this->form = new FreepageForm($freepage);
 
     $this->processForm($request, $this->form);
@@ -75,7 +62,7 @@ class opFreepagePluginActions extends sfActions
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($freepage = Doctrine::getTable('Freepage')->find($request->getParameter('id')), sprintf('Object freepage does not exist (%s).', $request->getParameter('id')));
+    $freepage = $this->getRoute()->getObject();
     $freepage->delete();
 
     $this->redirect('opFreepagePlugin/list');
@@ -83,10 +70,10 @@ class opFreepagePluginActions extends sfActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    $form->bind($request->getParameter($form->getName()));
     if ($form->isValid())
     {
-      $freepage = $form->save();
+      $form->save();
       $this->redirect('opFreepagePlugin/list');
     }
   }
