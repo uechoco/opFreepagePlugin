@@ -1,0 +1,11 @@
+freepage_id:
+  url:     /freepage/:id
+  class:   sfDoctrineRoute
+  options: { model: Freepage, type: object, method: findForPcRoute }
+  params:  { module: freepage, action: index }
+  requirements:
+    id:    \d+
+
+freepage_nodefaults:
+  url:     /freepage/*
+  params:  { module: default, action: error }
