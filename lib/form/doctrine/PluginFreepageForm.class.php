@@ -19,7 +19,8 @@ abstract class PluginFreepageForm extends BaseFreepageForm
 
     unset($this['created_at'], $this['updated_at']);
 
-    $this->widgetSchema['body'] = new sfWidgetFormTextarea(array(), array('cols' => 50, 'rows' => 20));
+    $this->widgetSchema['title'] = new sfWidgetFormInputText(array(), array('class' => 'input_text', 'size' => 30));
+    $this->widgetSchema['body']  = new sfWidgetFormTextarea(array(), array('cols' => 72, 'rows' => 20));
 
     $this->widgetSchema['app_type'] = new sfWidgetFormSelect(array('choices' => self::$app_types));
     $this->validatorSchema['app_type'] = new sfValidatorChoice(array('choices' => array_keys(self::$app_types)));
