@@ -10,11 +10,11 @@
       <tr>
         <td colspan="2">
           <?php echo $form->renderHiddenFields() ?>
-          &nbsp;<a href="<?php echo url_for('opFreepagePlugin/index') ?>">キャンセル</a>
+          &nbsp;<a href="<?php echo url_for('opFreepagePlugin/index') ?>"><?php echo __('Cancel') ?></a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('削除', 'opFreepagePlugin/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => '本当に削除しますか？')) ?>
+            &nbsp;<?php echo link_to(__('Delete'), 'opFreepagePlugin/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => __('Are you sure to delete this?'))) ?>
           <?php endif; ?>
-          <input type="submit" value="<?php echo $form->getObject()->isNew() ? '作成' : '更新' ?>" />
+          <input type="submit" value="<?php echo $form->getObject()->isNew() ? __('Create') : __('Update') ?>" />
         </td>
       </tr>
     </tfoot>
