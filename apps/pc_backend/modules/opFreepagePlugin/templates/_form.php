@@ -32,6 +32,7 @@
         <td>
           <?php echo $form['body']->renderError() ?>
           <?php echo $form['body'] ?>
+          <p>テンプレートの書式については<?php echo link_to('こちら', '@default_template_help', array('popup' => true)) ?>を参照してください。</p>
         </td>
       </tr>
       <tr>

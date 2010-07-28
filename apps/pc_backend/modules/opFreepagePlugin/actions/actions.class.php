@@ -25,6 +25,7 @@ class opFreepagePluginActions extends sfActions
 
   public function executeList($request)
   {
+    // TODO paging
     $this->freepage_list = Doctrine::getTable('Freepage')->findAll();
   }
 
